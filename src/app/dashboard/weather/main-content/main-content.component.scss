@@ -1,0 +1,274 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    font-family: "Rubik", sans-serif;
+
+    .search-bar {
+        padding: 5px;
+        input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            border: none;
+            background-color: #242c3e;
+            color: white;
+            font-family: "Rubik", sans-serif;
+            font-size: 15px;
+        }
+    }
+
+    .main {
+        padding: 44px;
+        padding-left: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Rubik", sans-serif;
+        width: 100%;
+
+        .left-side {
+            .city {
+                color: white;
+                font-size: 40px;
+                font-weight: 500;
+            }
+            .rain {
+                margin-top: 10px;
+                color: #5b5c69;
+            }
+            .degree {
+                color: white;
+                font-size: 50px;
+                margin-top: 75px;
+                font-weight: 500;
+            }
+        }
+
+        .right-side {
+            text-align: center;
+            img {
+                width: 150px;
+                height: 150px;
+            }
+            p {
+                font-size: 20px;
+                color: #5b5c69;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .hourly-forecast {
+        width: 100%;
+        background-color: #242c3e;
+        padding: 30px;
+        border-radius: 20px;
+
+        .title {
+            color: #5b5c69;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .forecast {
+            padding-bottom: 10px;
+            padding-top: 20px;
+            color: #5b5c69;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            .cont {
+                width: 100px;
+                border-right: 1px solid #5b5c69;
+                text-align: center;
+                margin-bottom: 20px;
+
+                &:last-child {
+                    border-right: none;
+                }
+
+                img {
+                    width: 70px;
+                    height: 70px;
+                    margin-top: 5px;
+                }
+
+                .temp {
+                    color: white;
+                    font-weight: 500;
+                    font-size: 19px;
+                }
+            }
+        }
+
+        .empty {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            color: #5b5c69;
+            font-size: 18px;
+        }
+    }
+
+    .air-condition {
+        width: 100%;
+        background-color: #242c3e;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 20px;
+        max-height: 266px;
+
+        .title {
+            color: #5b5c69;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .condition {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            p {
+                color: #5b5c69;
+                font-weight: 500;
+            }
+
+            h3 {
+                color: white;
+                font-size: 35px;
+                margin-top: 10px;
+            }
+
+            .first-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                margin-bottom: 20px;
+                text-align: center;
+                .title {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+            .second-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                text-align: center;
+                .title {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 600px) {
+        .main {
+            flex-direction: row;
+
+            .left-side, .right-side {
+                width: 50%;
+            }
+        }
+
+        .condition {
+            flex-direction: row;
+            justify-content: space-between;
+
+            .first-row, .second-row {
+                flex-direction: column;
+                row-gap: 20px;
+            }
+        }
+    }
+    @media (max-width: 580px) {
+        .second-row {
+            flex-direction: row;
+        }
+    }
+}
+
+.main-component {
+    background-color: #0c121f;
+    width: 100%;
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+
+    .side-bar {
+        width: 100%;
+    }
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+    .week-forecast-chart {
+        width: 100%;
+    }
+
+
+
+    @media (min-width: 600px) and (max-width: 1569px) {
+        flex-direction: row;
+
+        .main-content {
+            width: calc(100% - 340px);
+            margin-left: 20px;
+        }
+
+        .week-forecast-chart {
+            margin-left: 20px;
+            width: calc(100% - 340px);
+        }
+    }
+}
+
+.tit{
+    display: flex;
+    align-items: center;
+    .menu{
+        display: none;
+    }
+    .search-bar{
+        width: 100%;
+        input{
+            width: 100%;
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 600px){
+    .tit{
+        gap: 10px;
+        .menu{
+            display:inline-block;
+        }
+        .search-bar{
+            input{
+                width: 100%;
+            }
+        }
+    }
+}

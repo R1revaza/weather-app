@@ -1,0 +1,24 @@
+<div class="main">
+    <div class="search-bar">
+        <input type="text" placeholder="Search For Cities" [(ngModel)]="name" (keyup.enter)="search()"
+        >
+    </div>
+    <div class="row" *ngFor="let item of defaultWeatherData, let i = index">
+        <div class="left-side">
+            <div class="img">
+                <img [src]="item.current.condition.icon" alt="icon" width="110" height="110">
+            </div>
+            <div class="text">
+                <h2>{{item.location.name}}</h2>
+                <p>{{item.location.localtime  | date:'shortTime'}}</p>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="temp">
+                <h2>
+                    {{item.current.temp_c}}°
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>

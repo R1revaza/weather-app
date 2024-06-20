@@ -1,0 +1,35 @@
+.main-comp{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    .right-side{
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 1613px) {
+    .main-comp{
+        .right-side{
+            margin-left: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 1520px) {
+    .main-comp{
+        display: flex;
+        flex-direction: column;
+        .right-side{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 587px) {
+    .main-comp{
+        .right-side{
+            margin: 0;
+        }
+    }
+}

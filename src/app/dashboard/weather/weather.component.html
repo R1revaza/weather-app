@@ -1,0 +1,10 @@
+<div class="main-component">
+    <div class="resp">
+        <div class="main-content">
+            <app-main-content  (WeatherData)="recieveData($event)"></app-main-content>
+            </div>
+        <div class="week-forecast-chart">
+            <app-week-forecast [_sevenDayForecast]="weatherData"></app-week-forecast>
+        </div>
+    </div>
+</div>

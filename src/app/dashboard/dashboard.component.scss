@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+$font: "Rubik", sans-serif;
+.main-component {
+  background-color: #0c121f;
+  width: 100%;
+  padding: 34px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  .main-content {
+    min-width: 45%;
+  }
+
+  .resp {
+    display: flex;
+    width: 100%;
+    margin-left: 5%;
+  }
+
+  .side-bar {
+    flex: 0 0 auto;
+  }
+}
+::ng-deep app-map{
+  width: 100%;
+}
+
+@media screen and (max-width: 1570px) {
+  .resp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+
+    ::ng-deep app-weather {
+      width: 100%;
+    }
+  }
+  .main-component {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+
+.navbar {
+  width: 100px;
+  height: 100%;
+  background-color: #21293b;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  color: rgb(121, 124, 137);
+  font-family: $font;
+}
+
+.main-logo {
+  width: 45px;
+  height: 45px;
+  background-color: rgb(121, 124, 137);
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 25px;
+  text-align: center;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}
+.icons {
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  .icon {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    align-items: center;
+    line-height: 30px;
+    font-weight: 600;
+    margin-top: 30px;
+    cursor: pointer;
+    img {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.logOut {
+  align-content: flex-end;
+  padding-bottom: 20px;
+  .icon {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    align-items: center;
+    line-height: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    .btn {
+      font-size: 13px;
+      border: none;
+      background-color: transparent;
+      font-family: $font;
+      color: red;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  }
+}
+
+.navbar {
+  .top {
+    .close {
+      display: none;
+    }
+  }
+}
+@media (max-width: 370px) {
+  .main-component{
+  .resp {
+    margin: 0;
+  }
+}
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    .top {
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px;
+      .close {
+        display: block;
+        height: 20px;
+      }
+      display: flex;
+      align-items: center;
+    }
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    .main-logo {
+      width: 70px;
+      height: 70px;
+      .image {
+        img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+    .icons {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      .icon {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        img {
+          width: 60px;
+          height: 60px;
+        }
+        a {
+          font-size: 25px;
+        }
+      }
+    }
+    .logOut {
+      .icon {
+        img {
+          width: 60px;
+          height: 60px;
+        }
+        button {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+.weather{
+  color: white;
+}

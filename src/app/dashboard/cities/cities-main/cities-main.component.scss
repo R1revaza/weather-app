@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+$font: "Rubik", sans-serif;
+
+.main {
+    font-family: $font;
+    width: 850px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .row {
+        background-color: #202B3B;
+        padding: 10px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        .left-side {
+            display: flex;
+            align-items: center;
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-left: 20px;
+
+                h2 {
+                    color: white;
+                    font-weight: bolder;
+                    letter-spacing: 1px;
+                    font-size: 30px;
+                }
+
+                p {
+                    color: #737A85;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .right-side {
+            .temp {
+                h2 {
+                    font-size: 30px;
+                    color: white;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    .search-bar {
+        padding: 5px;
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            border: none;
+            background-color: #242c3e;
+            color: white;
+            font-family: "Rubik", sans-serif;
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 1060px) {
+        width: 100%; 
+        padding: 20px; 
+        gap: 15px; 
+
+        .row {
+            gap: 45px; 
+            padding: 8px; 
+        }
+
+        .left-side, .right-side {
+            width: 100%; 
+        }
+
+        .search-bar {
+            padding: 10px; 
+        }
+
+        input {
+            font-size: 14px; 
+        }
+    }
+    @media (max-width: 665px) {
+        width: 100%; 
+        padding: 15px; 
+        gap: 15px; 
+
+        .row {
+            flex-direction: column;
+            padding: 8px; 
+        }
+
+        .left-side, .right-side {
+            width: 100%; 
+        }
+
+        .search-bar {
+            padding: 10px; 
+        }
+
+        input {
+            font-size: 14px; 
+        }
+    }
+}

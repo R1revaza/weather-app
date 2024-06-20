@@ -1,0 +1,77 @@
+<div class="main-content">
+    <div class="tit">
+        <!-- <div class="menu">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQElEQVR4nO3WMQoAIBADwfwf4Xo/q72NWB3IDOQB6TYBAJJRc/2wfHMEAACuuqtVxpeMBwDgVXd+y/iS8QCQ0wbMaisewr9duAAAAABJRU5ErkJggg==" (click)="menu()">
+        </div> -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search For Cities" [(ngModel)]="name" (keyup.enter)="search()">
+        </div>
+    </div>
+    <div class="main">
+        <div class="left-side">
+            <div class="top-text">
+                <p class="city">{{weatherData.location.name}}</p>
+                <p class="rain">Humidity: {{weatherData.current.humidity}}%</p>
+            </div>
+            <p class="degree">{{weatherData.current.temp_c}}°</p>
+        </div>
+        <div class="right-side">
+            <img [src]="weatherData.current.condition.icon" alt="">
+            <p>{{weatherData.current.condition.text}}</p>
+        </div>
+    </div>
+    <div class="hourly-forecast">
+        <div class="title">
+            <p class="para">TODAY'S FORECAST</p>
+        </div>
+        <div class="forecast" *ngIf="newArr.length >= 2">
+            <div class="cont" *ngFor="let item of newArr">
+                <p class="time">{{item.time | date:'shortTime'}}</p>
+                <img [src]="item.condition.icon" alt="">
+                <p class="temp">{{item.temp_c}}°</p>
+            </div>
+        </div>
+        <div class="empty" *ngIf="newArr.length < 2">
+            <p>No More Forecasts Today</p>
+        </div>
+    </div>
+    <div class="air-condition">
+        <div class="title">
+            <p class="para">AIR CONDITIONS</p>
+        </div>
+        <div class="condition">
+            <div class="first-row">
+                <div class="feel">
+                    <div class="title">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nOWVsWrDMBCG/V4dC6EtHbsF+gjtI7iQzTrfqZ38nx+gWyAQMnTOewTqIWRKCGQKpMWS6xaDF8spNRX8g3Twf9wvcYqif7HSNL8hRkGiH06MwgiuewPQT/NKRvDeH0C8adt+OABq0YAAVm+dzhaR/WUAnTsiGsQdGMFTaweMSZB5whh5MxxJgBrAWUyCfVlL0+yqM4BYF37uaF6b18oTV2O8dQeIrn0UOm4C+FnvKsC2M8CwrlwML3rfBLgzfxe7gA4wrTp4bQKM1Vl4RDa7NIyTk2BqBA9k8fhlXv0LYR8PscZtQ658wkHm352Ubx9LYj2Q6IZE5wnnF72Y//n1CQ+OdMtmvFrIAAAAAElFTkSuQmCC">
+                        <p>Real Feel</p>
+                    </div>
+                    <h3>{{weatherData.current.feelslike_c}}°</h3>
+                </div>
+                <div class="rain">
+                    <div class="title">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC5ElEQVR4nO2ZS2sUQRDHG98PREFFPCh4MCi+7r4IXkXBgyh+Aw+C3owe5haz2zVVs4mSVE1MwIPIelMRHxgkgqAHMfkCIgGfF42Jhhiz0nF3XXU2j53u2YnsHwr2MLPz/01Xd3XXKNVQQw05EYA0aZJBQB7IBJ1b1XyS53mLAOU5kBRMaOIXzLxYzRcB8cWS+QqIFjUfpIPunRpl7B8AlDFE2aHSLM/zFgDK07/NV4zCs3w+v1ClVVmSs9XMlwPljEqj2gLerFG+zAhAPKLbZYtKm4D41szmy6NwV6VJWZ9Pzdp8aT74fFKlQa0dHWuB5P2cAUg+5nJX19fbv9LIvXM1XzEfeupqPovhPo08WSuARp7U1HWwbtsFTfKy9rdfTqVB81+JA2jkc3HNQ71qQxCEGzTKZ2sAJJ8SndBAzBbNF4pxJRHzROF2IPluG0AjTySy2dPI9xy8/UIx7jg2L4ccmi/8WpXCZncAJI/dA0ifI/Nhs2vzUIZwUNyA+FFSAEDy0H6HIcaWoaYA3mYNQJNcStQ8TVXnVmsAgDwUnavcksvllgLKBfsAPGTFvCnxkeaRJ0q9Ho95haM0WhcbAALeXwXgXfka6NnkBCDHe90tnxVDjMgbXQBkUA7Y2vtEjcCk1tdW/gaVQfspJE2xAUx+a5KvMx3Mfb9zD5C8tQfAI57Xu0zZEBDfrJJGA56XX1K6jqh3DSCf1yhPNPKHmMfNG1bMFwGOTvOg69U6zwau1iVWIx9WNqWRH1R9GEmf7/OuqPsyme5VNQDcV7ZlJhSgjE7z0B8a+TYQn84G4W5z7DQ5HNVqnzZQRq1M3iiZYTUFzPpqQ+W0mcj6cky5FFB4Iqr/H9+8jPkBH3dq/o/qjPLaovlXpkmmkpRZMjXxZY0yHsP4uCZub2vj1apeMl8gTUsEiIdnb56HDXwmTV8vpyo2dh0BlA4g7tckb4D4m4ni737zts01vu8vr7ffhhr6X/QTWeiDQwSd9vcAAAAASUVORK5CYII=">
+                        <p>Humidity</p>
+                    </div>
+                    <h3 >{{weatherData.current.humidity}}%</h3>
+                </div>
+            </div>
+            <div class="second-row">
+                <div class="wind">
+                    <div class="title">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVR4nO1ZzWtVVxA/atH6tejCf8DPlYIUtZAKummp+F0rxZWfC81ObTeiV+wivDtz5tyHz4+ZGysIUny4r6Gu3boRiRZqoomgUlz4kWDUlIkhTU5y37vv5d3kBt8PzuLCcM78znzdM2NME0000RAEzAvQ8UF00oHE/wBJPxL3opO/kKS1VCotMnkHRrIViJ+jk8GkBU6eAskek1cg8a9A/LESiREyxB/ByS8mbwhJdqCTD2lIjCUT7057RrFYnBda3gckZXTcBU7eAskrIL6PTq7rXkFQnjspIuD477GKch84PmttvFwVILqyFB2fQsevfTfTmKq2v434JyTprnpBJA+BLm+bBBHp+f+mpT+kuGVChWy8HkneeIe3Ju0bBMFsJDlfi6VxaE/+bXBwcFbNREIruzTIPwU6b68ki8SnPRe7lSxbBwk3Yu02Uw/K5fKcNHJhkZf57jWRnGa28XEl/UBy2Vr5pu3ixa8Ari0ExxuQ2A2leS8GNYuarKAB6Ss3kZz6u0e4ByJel7SvtbwaHD/2XKwz7QXXjIJrX+UrOJHc6HoEJO80vqrtHUbxGs1mo/e3Ef+YCREkDtPEiP4dfHIX7oNIDqXdH5xEXgb93WRUbwY88x9OktffmTTpeTQ0fvyUbBqBILj6JRbjrzVIxxdN7qpV0WooFNoXj3Vd/jdR2Np4C5A8qjc1Di+1zPemwSiVSos8i7xJVQDrJQE2PmAyQEhxi2eRe4nCSPykbhLEnRjxt1mQUCBxu3fmdZMEcPyDvjXSKc99w7J/AMnezPK6Ub3iTePiMMuimAVC4u+A+KXnVg+CIPjC5B3F4pUl6h1ActN/C+m3tby54gYNylrZLuKTVW+iAVkrswUk79DJ8VQmnVTWytQKckcre2rfrC1rZXn7/ByJ7+r/lWas1ASayCtsJlmL+/QnEh3fAMs/Z1k4pzRraTErkGw0WQKnLmsN6AMrMyIwhVkLiN/reWamINAHGLavRScXVHmvPnQ3+gE2JdBu4XCFHiETOjliZiLAScFzsw4zE4EoK9O0jXKPtI28aYMWujQN5rSt1WmBzjDAyQtd2uOqLMtnPCJ/mrwAvPFDUhNCG9N+6xMsHzN5AXgDoaHuupNzhejSiqGJVJGXqSV8EjpMzVUdCesc0aHjnSZvQOKTNQ1NLZ8weX4GoJNnFYkQ9+okzOQd1tr56GQ/kNweJjWgyuuYAR0f1WnUdOvYRBOfI/4DqF5b3cXGUSAAAAAASUVORK5CYII=">
+                        <p>Wind</p>
+                    </div>
+                    <h3>{{weatherData.current.wind_kph}}</h3>
+                </div>
+                <div class="UV">
+                    <div class="title">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeklEQVR4nO2ZS2sUQRDHm2DiKoIornhQP5KPEPw6fcw41VPlwLJQtawLPiHfQnMU4sZDXip49iLGFyioVIxmdmR1ZrbnsWH+0JeZ6a76UdPd1dXGtGrVqlY5lCdA8szMuxzJD21m3uVakIapcRGJosF5a0edqkCYeXG13z9nfEM4lE8OeTOOh92yQeJ42HXIzwHlfRDw2dwOTx84PgkkY3UISF7kgQGUdUf8NLutYVdtHNoaa2QKO57BwHYY9i55NZC2gbxVho3SYSqDmBb6IgtAWjpG0V/XB8wYSD6njVq7tgQotwD5kUPeccQfDxryjj7Td/pNsg9A/6Ij/qJjVgZx5PCo4xxfmHCIBstA/Pr3SjW1obwKI7mZ7KtjWQ/RnUnW2gWHHP4XINWA5Lb2NU0RkEBeiKPocGCaIKDBcmGIP41v1Aph7dqS/u+zgui8Si8AlUpXoNmjcQiDsmLqkiN57A2E+EF9ICh7vkB0nzG+1Ov1zjjiN/8I//oECPG+NxDi/aJ+5AZJZ7F1gbgc2XQmAfGuvzki26YuOZKH/iIi92oDOTbLLzMvAvHLud8QVZrFzhYJ/u6Ir5kmyBXIfBOTfNU0RdbaBU3Jc0cCOag9jbfWnrDMp5PPNIvNNGdQ9kKU68m+WvZh3xWTbEdd3gDkt+lT3cECgLKiuZPuDYDy4VfjLUC+r+/SDusGCMjvKj3qThYfeEMjM+uYCqYFOVdV8aHMkk0VdbPK6k5x2TA6qbXuWyT0eW+s4gSM2oyi6FRhx/9yxt294ki+VVzE3gSUr0Esl41PBXf4apXXCtaOOmrTNEVFQRqnFqRpOjYRgZw3Vq1atTKl6CdzkkhoKci9QAAAAABJRU5ErkJggg==">
+                        <p>UV Index</p>
+                    </div>
+                    <h3>{{weatherData.current.uv}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

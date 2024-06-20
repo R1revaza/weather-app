@@ -39,7 +39,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@maptiler/sdk/dist/maptiler-sdk.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -110,5 +111,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8f21b13e-5a38-4f00-ba0d-127742b14950"
   }
 }

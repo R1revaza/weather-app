@@ -1,0 +1,133 @@
+<div class="contain">
+  <div class="head-text">
+    <span id="span1">START FOR FREE</span>
+    <h1 class="big-text">Create new account<span id="dot">.</span></h1>
+    <span id="span2"
+      >Already A Member?
+      <a [routerLink]="'/sign-in'">Sign In</a>
+    </span>
+  </div>
+  <div class="main-form">
+    <form [formGroup]="userForm">
+      <div class="namenstuff">
+        <div class="inputBox">
+          <input
+            type="text"
+            required
+            formControlName="firstName"
+            name="firstName"
+          />
+          <span>First Name</span>
+          <div
+            class="errorText"
+            *ngIf="
+              userForm.controls['firstName'].invalid &&
+              isFormSubmitted &&
+              (userForm.controls['firstName'].touched ||
+                userForm.controls['firstName'].dirty)
+            "
+          >
+            <p *ngIf="userForm.controls['firstName'].errors?.['required']">
+              This Is Required
+            </p>
+            <p *ngIf="userForm.controls['firstName'].errors?.['minlength']">
+              Minimum Length is 3
+            </p>
+            <p *ngIf="userForm.controls['firstName'].errors?.['maxlength']">
+              Maximum Length is 14
+            </p>
+          </div>
+        </div>
+        <div class="inputBox">
+          <input
+            type="text"
+            required
+            formControlName="lastName"
+            name="lastName"
+          />
+          <span>Last Name</span>
+          <div
+            class="errorText"
+            *ngIf="
+              userForm.controls['lastName'].invalid &&
+              isFormSubmitted &&
+              (userForm.controls['lastName'].touched ||
+                userForm.controls['lastName'].dirty)
+            "
+          >
+            <p *ngIf="userForm.controls['lastName'].errors?.['required']">
+              This Is Required
+            </p>
+            <p *ngIf="userForm.controls['lastName'].errors?.['minlength']">
+              Minimum Length is 3
+            </p>
+            <p *ngIf="userForm.controls['lastName'].errors?.['maxlength']">
+              Maximum Length is 14
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="emailnstuff">
+        <div class="inputBox">
+          <input
+            type="text"
+            required
+            formControlName="email"
+            name="email"
+            autocomplete="email"
+          />
+          <span>Email</span>
+          <div
+            class="errorText"
+            *ngIf="
+              userForm.controls['email'].invalid &&
+              isFormSubmitted &&
+              (userForm.controls['email'].touched ||
+                userForm.controls['email'].dirty)
+            "
+          >
+            <p *ngIf="userForm.controls['email'].errors?.['required']">
+              This Is Required
+            </p>
+            <p *ngIf="userForm.controls['email'].errors?.['email']">
+              Enter Proper Email
+            </p>
+          </div>
+        </div>
+        <div class="inputBox">
+          <input
+            type="password"
+            required
+            formControlName="password"
+            name="password"
+          />
+          <span>Password</span>
+          <div
+            class="errorText"
+            *ngIf="
+              userForm.controls['password'].invalid &&
+              isFormSubmitted &&
+              (userForm.controls['password'].touched ||
+                userForm.controls['password'].dirty)
+            "
+          >
+            <p *ngIf="userForm.controls['password'].errors?.['required']">
+              This Is Required
+            </p>
+            <p *ngIf="userForm.controls['password'].errors?.['minlength']">
+              Minimum Length is 6
+            </p>
+            <p *ngIf="userForm.controls['password'].errors?.['maxlength']">
+              Maximum Length is 16
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="buttons">
+    <button class="button" type="submit" (click)="onSubmit()">
+      Create account
+    </button>
+  </div>
+</div>

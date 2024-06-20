@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+$font: "Rubik", sans-serif;
+$mini-font: rgb(108, 114, 127);
+$blue-one: rgb(61, 91, 126);
+$button: rgb(31, 143, 243);
+$dot: rgb(52, 135, 215);
+$forms: rgb(50, 53, 68);
+
+.contain{
+    font-family: $font;
+    position: absolute;
+    top: 32%;
+    left: 7%;
+}
+
+#span1{
+    font-size: 15px;
+    font-weight: 450;
+    color: $mini-font;
+    line-height: 35px;
+}
+
+.big-text{
+    font-size: 42px;
+    font-weight: 500;
+    color: white !important ;
+    #dot{
+        font-size: 42px;
+        color: $dot;
+    }
+}
+
+#span2{
+    color: $mini-font;
+    line-height: 50px;
+    a{
+        color: $dot !important;
+        font-weight: bold;
+        text-decoration: none;
+    }
+}
+
+.main-form{
+    width: 100%;
+    input{
+        background-color: $forms;
+        border: none;
+        color: $mini-font;
+        padding:  20px;
+        font-size: 17px;
+        border-radius: 20px;
+    }
+
+    .namenstuff{
+        display: grid;
+        grid-template-columns:repeat(2, 2fr);
+        grid-gap: 15px;
+        input{
+            width: 200px;
+        }
+    }
+
+    .emailnstuff{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        margin-top: 20px;
+        .inputBox{
+            width: 100%;
+        }
+    }
+
+    
+}
+
+.buttons{
+    .button{
+        color: white;
+        background-color: rgb(84, 92, 105);
+        border: none;
+        padding: 15px;
+        width: 200px;
+        border-radius: 30px;
+        font-size: 16px;
+        margin-top: 5%;
+        box-shadow: 1px 1px 20px 0px rgba(32, 31, 31, 0.75);
+    }
+    .button:hover{
+        background-color: $button;
+        transition-duration: .5s;
+    }
+}
+
+.inputBox{
+    position: relative;
+}
+
+.inputBox input{
+    width: 100%;
+}
+
+.inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 20px;
+    color: $mini-font;
+    transition: .5s;
+    pointer-events: none;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+    color: #00dfc4;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.75em;
+    padding: 0 10px;
+    background-color: #1d2b3a;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    letter-spacing: 0.2em;
+}
+
+.inputBox input:valid,
+.inputBox input:focus,
+.inputBox input:active{
+    border: 2px solid #00dfc4;
+} 
+
+@media screen and (max-width: 754px) {
+    .contain{
+        left: 0;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+}
+
+
+@media screen and (max-width: 450px) {
+    .big-text{
+        font-size: 35px;
+    }    
+}
+
+@media screen and (max-width: 425px) {
+    .main-form{
+        .namenstuff{
+            input{
+                width: 160px;
+            }
+        }
+        .emailnstuff{
+            width: 350px;
+        }
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .main-form{
+        .namenstuff{
+            input{
+                width: 140px;
+            }
+            #second{
+                margin-left: -20px;
+            }
+        }
+        .emailnstuff{
+            width: 300px;
+        }
+    }
+}
+
+
+.errorText{
+    margin: 5px;
+    p{
+        color: red;
+    }
+}

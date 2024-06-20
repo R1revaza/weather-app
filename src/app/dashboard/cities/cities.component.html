@@ -1,0 +1,8 @@
+<div class="main-comp">
+    <div class="left-side">
+        <app-cities-main (weatherData)="weather($event)" (hourlyWeatherData)="hourly($event)"></app-cities-main>
+    </div>
+    <div class="right-side">
+        <app-desc [hourlyWeatherData]="hourlyWeatherData" [weatherData]="weatherData"></app-desc>
+    </div>
+</div>

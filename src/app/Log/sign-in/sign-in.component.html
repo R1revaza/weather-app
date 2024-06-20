@@ -1,0 +1,63 @@
+<div class="main">
+  <div class="form">
+    <div class="header">
+      <h1>Sign In</h1>
+      <div class="sub-text">
+        <p>
+          If you don't have account create it
+          <a routerLink="/login">Here</a>
+        </p>
+      </div>
+    </div>
+    <div class="main-form">
+      <form [formGroup]="forms">
+        <div class="inputBox">
+          <input type="text" required formControlName="email" name="email"/>
+          <span>Email</span>
+          <div
+            class="errorText"
+            *ngIf="
+              forms.controls['email'].invalid &&
+              (forms.controls['email'].touched || forms.controls['email'].dirty)
+            "
+          >
+            <p *ngIf="forms.controls['email'].errors?.['required']">
+              This Is Required
+            </p>
+            <p *ngIf="forms.controls['email'].errors?.['email']">
+              Enter Correct Email
+            </p>
+          </div>
+        </div>
+        <div class="inputBox" style="margin-top: 30px">
+          <input type="password" required formControlName="password" name="password"/>
+          <span>Password</span>
+          <div
+            class="errorText"
+            *ngIf="
+              forms.controls['password'].invalid &&
+              (forms.controls['password'].touched ||
+                forms.controls['password'].dirty)
+            "
+          >
+            <p *ngIf="forms.controls['password'].errors?.['required']">
+              This Is Required
+            </p>
+            <p *ngIf="forms.controls['password'].errors?.['minlength']">
+              Minimum Length is 5
+            </p>
+            <p *ngIf="forms.controls['password'].errors?.['maxlength']">
+              Maximum Length is 16
+            </p>
+          </div>
+          <div *ngIf="inc && errorMessage" class="error-message" style="color: red;">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="buttons">
+      <button class="button" type="submit" (click)="submit()">Sign In</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="main">
+    <div class="title">
+        <p>7-DAY FORECAST</p>
+    </div>
+    <div class="main-content">
+        <div class="row" *ngFor="let item of _sevenDayForecast">
+            <div class="day">
+                <p>{{item.date | date:'dd EEEE'}}</p>
+            </div>
+            <div class="icon">
+                <img [src]="item.day.condition.icon" alt="">
+                <p>{{item.day.condition.text}}</p>
+            </div>
+            <div class="temp">
+                <b>
+                    {{item.day.maxtemp_c | number: '1.0-0'}}<p>/{{item.day.mintemp_c |  number: '1.0-0'}}</p>
+                </b>
+            </div>            
+        </div>
+    </div>
+</div>

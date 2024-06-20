@@ -1,0 +1,41 @@
+<!-- 
+<div class="navbar" *ngIf="isTrue">
+    <div class="top">
+        <div class="main-logo">
+            <div class="image">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADcUlEQVR4nO2YW2sTQRTHT8ULeKO2mszGV30RxGJ3pfUbiMVLFf0QFbUV3I0WixdQfLJekMz4olUEv4IP7gaUPthWulstVSQzSREr0pm0aAu1KxsvbSZJczFNN5gfnIfdDeT/nznnzHAAatSoUeMPLa94g2byi5rJ+1VTfNUsMa1aYkg1xdWmaHIb+Jl9ljiomkJolnCzhfdNtSaPgR/RzORR1eJzucT/DZPP+85E68upgGbyibziF+2Er9JJNcUZaZVnm6OiU3suGve8mKzXTHFas/iMZOIK+AXVnGxPE2fxjnwmvcIG3+C6darFw6rFo5rFu73nrN0pfQeSUE20ZBoQUE2oljgrFfMgVMvKq554k89KBi5XTIQWFW2ayccLbZMFBG9+kdxaMQOqxRNlE2/yH96hVzHxZTbAKy6+DCk0pZliwDu4Kpo2NWr8zwRxrA1hNq4Q5q5YYDqNMB1FmD4JYnpi1zNnbcEGEKGJFRVPssYHROLt1WzA/RX0JvS4q/yfQiSPCb8TfPRpQwDHWxChtxFms5k1wip/opdKCCea5LRGmL4vqrB9YQKn7wTCseNQTSBM76QZIPTxwlfDbgPDHgfDcUuIadDtIdCdaxAeXLZxSQDHW9INsHcLX3UnUaL49NBtAbq9LIOrxgdfNqUXMk2W30Aq7PnlMNHQN7ZZ6kSiXCmUfSdypFPoYaIxiFlHqhW6mSOYXIQeJFqlTjRanqXpGaoHY/g0GPaMZCJz+tbjrlYwG1mUx5cK/RuF0LtSCvVBWdHtM5KBjOnb9vvxnVIhzgQibHde8ZHY3uVvo8bwFqkWMqZv3uGDCKVSO4wvZUIhtFm+2iBCxyDyek0R6tw6MJww6HYUdLs79SzT6TTkM+DhrZx8NUCYfUeE3QoStk+JjK/fdvfzxlAktl8h9F7GVQLT+VCEHipCPACE7XapUE9l/EZ3OiUDOadvCLPeUi9zCLPrxYnPnt+zYDhdYLxt/JU69tnf7xYbyD19c926Ukwgwm7kvU5n5dybAOjORBGtlBdyKqNI/JiCWSy/cDqmYHoY/onwyBEwnLkCzoAfoA8XfN3d0Tu2LkToSUToU4Wwj4jQbwqhUwpmb71Wmeo2xRXsEpwfOZA6pJZa+SLErwxet9HtC6Db/WDYX1PdRrcHUjnfNVqbvtWAKuMn4cJk6muVN9gAAAAASUVORK5CYII=">
+            </div>
+        </div>
+        <div class="close">
+            <img (click)="close()" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADPklEQVR4nO2Za2/SUBjH+Q6Gbq8McxoU2Si0MO73S7nDdui29DPuxZyJJmoyMH4Rx61QoJT4pm3ymEPkjbqtLe0Qwz/pW/r7lXOenuepzbbLLrv8//lRv2wsapddqXrRlSpsw6r7jKlEg/fGuzwZ6w7dUXPuI9U4tKhdKovqBSwq5yCVWFVkWM5mcngygXgyrozIOPDHMRi6I+rQHeZMhV+UWSwAc6aligzirILnj6LAuyMwcAXVoSvImQovFVsgMQjE/Kkq5pucVfDDtyEYvglC/3VA7Tn9nJE1fy/8vHAG8/wpiLmmImYbrFH4kS/FPgQ/eH0CA2cA+i9ppXdI1TX/MN6wj8HPc00Qsw2YZeqKmKqyVsEPXvmxAPRfeL9r/nGpen6nBV7M1EFM12CaquqS0A1/6IOeg9QhUGEbUplVtMDPUlWYJaswjVeUSbzEWgHfdZBKz0FqX0JLCaaF5sWWogV+lqjANF6GSbSoTsMMZ3TDDv4Gf0Cqveceg5WIaSGxcKZogZ/GSjCNFEEI5dVpMM9tHH6VWa6JflWbR+En4QJMQnkYn2TVsT/DbRx+lVm6hpbVRgO8EMyBEMjCmE4vJTYOvwquMrjaaIEX/BksACNvUjGyYbsOj+F3y4OZJcpomqjIWuDHviSMvAnY+JP/PUK0jCaxkryV8KsIIQYJ4YK8lfCrCKEcGgdz8lbCryIE0mjsz8hbCb8KT6XRyJuUtxIex0idvzsg1Rvi6OvVs00/fYPw74jjb1d2D1zbPerNpiTWhyfhvd0LHwmv+onwcVsK74MvBAXtPUptEzrbxn8HnobO8noCCevgaesljJ4qtcPTKwnlds9v7mFunSPxlf0IXds9sjZ42vx/wozz/I2dRB8Ir6wNnjZPwsxm5LOdQrd7tKwNnl5fwopOqrNPofZTSIzxlNiiTgpvULxRdUoobULHZA6PuK1sAw1JEJT2wRZPxu6s7mF1SxA6BPDHhaE7oljdgN9qltC5hHB4VwgNXEHF6vN8Z59CD0usUYn6rgDqOwOK1c1I514JE94FfWcA4fm81Z1U5w8JE9/G+OMCns/jEbfuKbGOtAmqjjcrvnSv+V122cW2lfkJLsRzLEFk6YUAAAAASUVORK5CYII=">
+        </div>
+    </div>
+    <div class="icons">
+        <div class="icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADXUlEQVR4nO2Yz2sTURDH19+Iv8EfxaM/8CA9e1HwR8GDt2qL4B9TFPEg+AvFWvGkNJV5mzdbkWBtZza2IoKKRe0PEbUXbwraKj1oXZlNNk2TJrvZZJMU9wsPQng7bz5v5s2bXcOIFStWpALNT0DTC2OpSyE7MoylLhWDRCzHcZaZlt3W+3BkS60jAjC4yUQ+LmsYUcu07DZxDJAmAOyWWoGILbHp2k7yCSNqIdqbcwsGgFFII6B5ODAE0oSsYdRDyeTAdtD8Lrvb7xPW451hbSX6h3bkbGmerMZWKBXuIoC9vlIblvV0QyXRrQfMnz5Nu3P/Y7oVkK65O635J2iaBqS3CumS6qf93jzTTO9VyHMNhfAkkTDNwV3yO5VKrVHIN8U575AXDtD0WyFd7el5uUqekQ0IE83IJBCgmUsBFA1Nd4xmFCB3VwBxX+4M9zmA1UpTJyAn5LBnUpF/AfJHhdQHST4jc+oEkW4tl04LU4svexee0tSecdgPnL8oTR2Rg0jOB4sE9wpEV1fXcoV8MXAEvU1AuiHPRgeieSxAOn2+l0ptzIBXDpE3rod1cnJxgzTizZHy6rubSft0xh61VwHhuLYs+1TFIN6FtUiu59oOhTTrE41PkhJyaAOdCd8U4ympkqEiEwY2L3rnXWBNndVCqOwwkU/WHERpvuKz8LEMMCdqBQLIU9kSPeuWbOkOkG9Ldx4aRG52aVNKLeo1gtJg1gpElc+AtLQ/4aIifVSx0TlATgHAiqBFoYbjm8KhQxWD2La9EjQ9yhnS9EFZfKAAtnxRiAAG+u09gQDuDgysA4v2yW9pBBXyBdD0XN5Z3CiA3SKHHZBHQdPfOoM40v/5QmSdHJfzkZ+TeS2IVKnv9XZelSg2JSFyZVfTG4BnaxekkaaOoP1XHUaPL4S8PHlplP/6qjT/aAIAx/URaaIIQj4DzUeCx8TpwjlyJhrtvMoH0TRdBGJaQ0cyE2h8MQg3YsijTQ8iUmgfLveBTm7aRjuvFgwaN8Kozhef4xsR5O5QIErT66YCSdLRkBHhc412Xs0PCgXhgsDwtmYov4D8Nf97Wyhl3wTnGgkB2j5YFUQBTCNaFKo6EoXqfWBvVUhnAfmVQpqJxnGacT+AaLoV+mDHihUrVqxY/4P+AZMOYC6b4+5bAAAAAElFTkSuQmCC">
+            <a>
+                Weather
+            </a>
+        </div>
+        <div class="icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+klEQVR4nO2WsQ6CMBCGzxgT4xu4+9JM7L0Asbsl7r6Bs4/gXIM6ERHKIZ7n/yUMtFD6tfcDRAAAMVyFOOYgbTBElMEmd6Q8nJu2ojhuH+fh0py7fb2TiMyyWGxSpPrMQyCivbSo1d533R+LVMjI/4XdleHabu+aC0QYGXkPMjI1PxH2Iaj512LhQBCZurTYqgg9aQYdMpDa0qJEESlqwi5FdUZ45P1OW0bmXAj7IiycSLvde79JWQhKXEj7ImSltMiKCH+xtJym74gZEbZSWgyRgB25M7Z0+vrzvF5L7vcdL4nkjEj7s+y0MiHinFuaEIkxLmYVAQDQK26VJPC+dcXbxgAAAABJRU5ErkJggg==">
+            <a>
+                Cities
+            </a>
+        </div>
+        <div class="icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC5klEQVR4nO1aPWsUURQdP8CAKIIWKoqFoqlFsVDzDwQJiI1oowZsLMVqLUUUSWm1EImBe2fuHRUW4ubeZzCCipUWRgUtFBQ7vxA/V94kk53dnd2ZyY4i+A4szMzOO/ed+96c5jzPc/jHACR1YHmCpMeMMcvL4rVclhNZnyLpLLCOVKtmwCsRPpuDSPIISNVD1sbCj+QlsJ7sR1ClUlmKJIciAUnu6CfvkOUcUX1tPwIw1D3IcjvJ3RRC8rzluuAKLaxAO09TxJ3E9Uckvez7sqWIAAhlB7AGTX592yEktZM5Vihr3EIhz/OCYGonko4h64/55z+B5WYQ1Hf3EjB+w6wDkvPI+tWOA9LP9v5qrba6Q0jeiRV9r53fYoJkK7CMIsuX+H9gmfF56kCj0VgSvzc2ObkSWc8g6ftYuG1EEExv6OBPK9Rzq0TP0p+nrVw3fotr4a2NyHohMdEGsj4E1sPAeiq5dYCEfd8MduXvVahr5wtsvSx+izCcWQWkp4HlVadB6H0/lKFM/jyF2uw0/tBymUFefotarbYC2BxPNGo4N3+RQkUntpj3i45xQtCtSH6g21rsPvZMONdiZ7/54Oy3ANDZLzv7zYSzX3b2mw/OfgsAnf2ys99MOPtlZ7/54Oy3ANDZLzv7zYSzX/7f7RdLjgk6Ywg5YWODMoUgyXBCSCKkzBGCZhVJTbqaIegbIDnLbNb0I8T3dS+Q3m2mWTrdM2IrEqWl8+gskjli8/DWwvIBWS5N8PTmIkJ83wzaCK6lMawjLfNcbLjZZdyLtEgOyOxDVmimuvItug/Nrl5Cxm2qyzIKJN/nG/QpTnW9fuPmIgLaAdfNtm6prpcQ0pnqRsKvAJj1XmkHABLXwPIMQjkKAMtyF4hyd7MJSS7ObbWYSx8ktmaU6gLJLyDxJ6i+3Vss+k118yBOdZH0dXsNILmHPLXf+yOHZOYOypR6CMeiWjUDtjH2kA+wPLYmUSa/g/cX8RtpBw95+vRXqwAAAABJRU5ErkJggg==">
+            <a>
+                Map
+            </a>
+        </div>
+    </div>
+    <div class="logOut">
+        <div class="icon">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABFklEQVR4nO2ZS04DMRBEqzccgJC4E3ICjhBxPgbOAwskcgUECNhknXCNQoYRCDGzILGZdFRP6pUty89d85EMCCFESIizI5pf0fyN5tzz2tD8Mu/5t0geGH6D/GM1XSLZksR4Ub37BTuDvsVrSxQWoURKoI6YolUHRcsUrTooWlYwWsT8lJbuaX4dtiPEaEbzVTv3LqQIMUm09Po5Lz0Q8+NwIkSa0PylnfNIzEbbSgwmQviY5s/t+BMxPdlFYhAR/pTYtm4kYoqWH+7DflCv354P4hJRRb5/UXLM0i0ii5RAIqaO1EHRMkWrDoqWKVoxo7X5GMT0PI5IWnct3pQ8qX+qi77L0OarM3tdaZ0lOi9DhRACEXgHkWDheJGajUUAAAAASUVORK5CYII=" (click)="logOut()">
+            <button class="btn" (click)="logOut()">
+                Log Out
+            </button>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,40 @@
+.resp{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 70px;
+}
+
+.week-forecast-chart{
+    width: 725px;
+}
+
+.main-content{
+    width: 80%;
+}
+
+
+@media screen and (max-width: 1570px) {
+    .resp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .main-content {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .week-forecast-chart {
+            align-self: center;
+            width: 100%;
+            margin-top: 30px;
+        }
+    }
+    .main-component {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,45 @@
+<div class="main" *ngIf="weatherData">
+    <div class="top">
+        <div class="left-side">
+            <h1 class="city">{{weatherData.location.name}}</h1>
+            <p>Humidity: {{weatherData.current.humidity}}%</p>
+            <h1 class="deg">{{weatherData.current.temp_c}}°</h1>
+        </div>
+        <div class="right-side">
+            <img [src]="weatherData.current.condition.icon" alt="" height="220" width="220">
+        </div>
+    </div>
+    <div class="middle">
+        <div class="title">
+            <p style="text-align: center;">TODAY'S FORECAST</p>
+        </div>
+        <div class="rows">
+            <div class="content" *ngFor="let item of hourlyWeatherData">
+                <p>{{item.time | date:'shortTime'}}</p>
+                <img [src]="item.condition.icon" alt="" height="100" width="100">
+                <h2>{{item.temp_c}}°</h2>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="title">
+            <p>3-DAY FORECAST</p>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="main" *ngFor="let item of weatherData.forecast.forecastday.slice(0, 3)">
+                    <div class="day">
+                        <p>{{item.date | date:'EEEE'}}</p>
+                    </div>
+                    <div class="state">
+                        <img [src]="item.day.condition.icon" alt="" height="65" width="65">
+                        <b style="font-size: 13px;">{{item.day.condition.text}}</b>
+                    </div>
+                    <div class="temp">
+                        <p><b>{{item.day.maxtemp_c | number: '1.0-0'}}</b>/{{item.day.mintemp_c | number: '1.0-0'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
