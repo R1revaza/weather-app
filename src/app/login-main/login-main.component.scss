@@ -1,41 +1,39 @@
-//url('D:/weather-app/src/Images/benjamin-ashton-8gQazVy0UAM-unsplash.jpg')
-
 .main {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(to right, rgb(39, 43, 55) 40%, rgba(39, 43, 55, 0.5)), 
-url('D:/weather-app/src/Images/benjamin-ashton-8gQazVy0UAM-unsplash.jpg');
+    background: linear-gradient(to right, rgb(39, 43, 55) 60%, rgba(39, 43, 55, 0.5)),
+    url('assets/img/img1.jpg');
     background-size: cover;
     background-position: center;
 }
 
-.login{
+.login {
     width: 40%;
     height: 100vh;
     position: relative;
 }
 
 @media screen and (max-width: 1150px) {
-    .main{
-        background: linear-gradient(to right, rgb(39, 43, 55) 60%, rgba(39, 43, 55, 0.5)), 
-        url('D:/weather-app/src/Images/benjamin-ashton-8gQazVy0UAM-unsplash.jpg');
+    .main {
+        background: linear-gradient(to right, rgb(39, 43, 55) 60%, rgba(39, 43, 55, 0.5)),
+        url('assets/img/img1.jpg');
         background-size: cover;
-        background-position: center;    
+        background-position: center;
     }
 }
 
 @media screen and (max-width: 754px) {
-    .main{
-        background: linear-gradient(to right, rgba(39, 43, 55, 0.9) 100%, rgba(39, 43, 55, 0.5)), 
-        url('D:/weather-app/src/Images/benjamin-ashton-8gQazVy0UAM-unsplash.jpg');
+    .main {
+        background: linear-gradient(to right, rgba(39, 43, 55, 0.9) 100%, rgba(39, 43, 55, 0.5)),
+        url('assets/img/img1.jpg');
         background-size: cover;
-        background-position: center;    
+        background-position: center;
         width: 100%;
         height: 100vh;
         display: grid;
     }
-    .login{
+    .login {
         width: 100%;
     }
 }
